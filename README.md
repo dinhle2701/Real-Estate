@@ -41,16 +41,16 @@ You can check out the live version here:
 
 ## 🛠️ Tech Stack
 
-| Layer      | Technology                          |
-|------------|-------------------------------------|
-| Frontend   | Next.JS + Tailwind CSS              |
-| Backend    | Express.JS       |
-| Database   | PostgreSQL (Prisma)              |
-| Auth       | JWT + Role-based Auth               |
-| State Mgmt | Redux Toolkit + RTK Query           |
-| Deployment | Amazon EC2 (backend)                |          
-|            | Amazon CloudFront + S3 (frontend)   |
-|            | Amazon DynamoDB                     |
+| Layer      | Technology                          |(choice)                      |
+|------------|-------------------------------------|-----------------------|
+| Frontend   | Next.JS + Tailwind CSS              |Next.JS + Tailwind CSS|
+| Backend    | Express.JS                          |Spring Boot      |
+| Database   | PostgreSQL (Prisma)                 |PostgreSQL(Prisma)    |
+| Auth       | JWT + Role-based Auth               |Spring Security + OAuth2 |
+| State Mgmt | Redux Toolkit + RTK Query           |Redux Toolkit + RTK Query|
+| Deployment | Amazon EC2 (backend)                |Amazon EC2 (backend)|         
+|            | Amazon CloudFront + S3 (frontend)   |Amazon CloudFront + S3 (frontend)|
+|            | Amazon DynamoDB                     |Amazon DynamoDB|
 
 ---
 
@@ -62,19 +62,19 @@ You can check out the live version here:
 - VSCode
 - Git
 
-### 📥 **Clone project**
+## 📥 **Clone project**
 
 ```bash
 git clone https://github.com/dinhle2701/Book-Store-App.git
 cd book-store-app
 ```
 
-## 🛠️ **Project Using Guide**
+### 🛠️ **Project Using Guide**
 
-### **1. Project Structure**
+#### **1. Project Structure**
 ```
 Real-Estate
-├── backend/  # Flask API - xử lý ảnh
+├── backend/ 
 │   ├── controllers/
 |   |   ├── 
 │   ├── middleware/
@@ -92,33 +92,31 @@ Real-Estate
 |   ├── index.js             # main file
 |   └── app.js
 │
-├── frontend/              # React UI
+├── frontend/              # Next.JS UI
 │  ├── public/
 │  ├── src/
+│  │  ├── app/
+│  │  |  ├── layout.js
+│  │  |  ├── global.css
+│  │  |  └── page.js
 │  │  ├── components/
 │  │  ├── constant/
 │  │  ├── context/
-│  │  ├── pages/
-│  │  |  ├── admin/
-│  │  |  ├── user/
 │  │  ├── query/
-│  │  ├── routes/
-│  │  ├── App.js
-│  │  ├── App.css
-│  │  └── index.js
-│  └── tailwind.config.js
+│  │  ├── utils/
+│  └── postcss.config.js
 ├── README.md
 └── .gitignore
 ```
 
-### **2. Run Project**
+#### **2. Run Project**
 Open Terminal and following:
-## Frontend:
+#### Frontend:
 Link: 
   - `Production`: 
   - `Development`: http://localhost:3000
 ---
-## Backend:
+#### Backend:
 Open Terminal, Docker and following:
     - Into root folder (Real-Estate) open cmd and type this:
 
