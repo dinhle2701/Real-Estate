@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  name     String
+  email    String    @unique
+  password String
+  role     String    @default("user")
+  isActive  Boolean  @default(true)
+  phone    String?
+  avatar   String?
+  contacts Contact[]
+  favorites Favorite[]
+  properties Property[]
+}
+
+model Property {
+  id          String    @id @default(uuid())
+  title       String
+  description String
+  price       Float
+  area        Float
+  location    String
+  latitude    Float?
+  longitude   Float?
+  type        String
+  images      String[]
+  bedrooms    Int
+  bathrooms   Int
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  contacts    Contact[]
+  favorites   Favorite[]
+}
+
+model Contact {
+  id         String    @id @default(uuid())
+  message    String
+  status     String    @default("pending")
+  user       User      @relation(fields: [userId], references: [id])
+  property   Property  @relation(fields: [propertyId], references: [id])
+  userId     String
+  propertyId String
+}
+
+model Favorite {
+  id         String    @id @default(uuid())
+  user       User      @relation(fields: [userId], references: [id])
+  property   Property  @relation(fields: [propertyId], references: [id])
+  userId     String
+  propertyId String
+}
